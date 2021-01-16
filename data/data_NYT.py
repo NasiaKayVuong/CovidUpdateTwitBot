@@ -10,3 +10,4 @@ def get_nyt_data(url):
     buff = io.StringIO(r.text)
     dr = csv.DictReader(buff)
     return dr
+
