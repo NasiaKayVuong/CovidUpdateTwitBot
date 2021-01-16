@@ -16,6 +16,11 @@ def upload_data(data):
     db.collection("daily_data").document(str(datetime.date.today())).set(format_data(data))
 
 
+def upload_average(data):
+    db = firestore.client()
+    db.collection("general_information").document("daily_average").set(data)
+
+
 cred = credentials.Certificate("../../creds/coviddailytwitterbot-firebase-adminsdk-dwcre-27e5f3b48a.json")
 firebase_admin.initialize_app(cred, {
   'projectId': "coviddailytwitterbot",
